@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { MenuItem, ActivityLog } from '@/types';
@@ -517,7 +517,7 @@ interface MenuStoreState {
 
   // System Reset Actions
   clearAllData: () => void;
-  resetToDefaults: () => void;
+
 }
 
 // âœ… Deep sanitizer: removes ALL undefined values from any object/array
@@ -899,16 +899,7 @@ export const useMenuStore = create<MenuStoreState>()(
         });
         syncStateToFirestore(get());
       },
-      resetToDefaults: () => {
-        set({
-          categories: initialCategories,
-          menuItems: initialMenuItems,
-          promotions: initialPromotions,
-          announcements: initialAnnouncements,
-          ratingUrl: 'https://rayahen-rating.vercel.app/',
-        });
-        syncStateToFirestore(get());
-      },
+
 
       // Branch Settings Copy Handler
       // Copies branchOverrides from sourceBranchId to each targetBranchId

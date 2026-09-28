@@ -44,7 +44,6 @@ function DashboardContent({ user, onLogout }: { user: string; onLogout: () => vo
   const setAdminBranch = useMenuStore((state) => state.setAdminBranch);
 
   const clearAllData = useMenuStore((state) => state.clearAllData);
-  const resetToDefaults = useMenuStore((state) => state.resetToDefaults);
 
   const [inputRatingUrl, setInputRatingUrl] = useState(ratingUrl || '');
   const [savedMsg, setSavedMsg] = useState(false);
@@ -150,16 +149,7 @@ function DashboardContent({ user, onLogout }: { user: string; onLogout: () => vo
               <span>{lastSyncStatus === 'syncing' ? 'جاري المزامنة...' : 'مزامنة السحابة'}</span>
             </button>
 
-            <button
-              onClick={() => {
-                if (confirm('استعادة البيانات الافتراضية للمنيو والعروض والمنشورات؟')) {
-                  resetToDefaults();
-                }
-              }}
-              className="bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold border border-brand-gold/30 px-3 py-2 rounded-xl text-xs font-bold transition shadow-sm flex items-center justify-center w-full"
-            >
-              🔄 استعادة
-            </button>
+
 
             {/* Copy Branch Settings Button */}
             <button

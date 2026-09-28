@@ -1,0 +1,16 @@
+--- admin-deploy
++++ menu-deploy
+@@ -13,6 +13,13 @@
+   categoryAr: string;
+   imageUrl?: string;
+   isActive?: boolean;
++  branches?: string[];
++  branchOverrides?: {
++    [branchId: string]: {
++      price?: number;
++      isActive?: boolean;
++    };
++  };
+ }
+ 
+ export interface Addon {

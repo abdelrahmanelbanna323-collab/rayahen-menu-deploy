@@ -1,0 +1,27 @@
+--- admin
++++ menu
+@@ -405,7 +405,6 @@
+   // Menu Item Actions
+   addMenuItem: (item: MenuItem) => void;
+   updateMenuItem: (id: string, updated: Partial<MenuItem>) => void;
+-  toggleMenuItem: (id: string) => void;
+   deleteMenuItem: (id: string) => void;
+   reorderMenuItems: (newOrder: MenuItem[]) => void;
+ 
+@@ -603,16 +602,6 @@
+         }));
+         syncStateToFirestore(get());
+       },
+-      toggleMenuItem: (id) => {
+-        set((state) => ({
+-          menuItems: state.menuItems.map((item) =>
+-            item.id === id
+-              ? { ...item, isActive: item.isActive === undefined ? false : !item.isActive }
+-              : item
+-          ),
+-        }));
+-        syncStateToFirestore(get());
+-      },
+       reorderMenuItems: (newOrder) => {
+         set({ menuItems: newOrder });
+         syncStateToFirestore(get());
