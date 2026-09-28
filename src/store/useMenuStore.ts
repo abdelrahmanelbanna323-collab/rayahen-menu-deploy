@@ -939,6 +939,7 @@ export const useMenuStore = create<MenuStoreState>()(
     }),
     {
       name: 'rayahen-menu-storage',
+      version: 2, // Bump version to force cache invalidation
       partialize: (state) => ({
         categories: state.categories,
         menuItems: state.menuItems,
