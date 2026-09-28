@@ -1,0 +1,51 @@
+{
+  "name": "Rayahen Dashboard",
+  "short_name": "Rayahen Admin",
+  "description": "Rayahen Alexandria Dashboard",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#FAF8F3",
+  "theme_color": "#FAF8F3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/new-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/new-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "لوحة التحكم",
+      "short_name": "الداشبورد",
+      "description": "الصفحة الرئيسية للإدارة",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/new-logo.jpg",
+          "sizes": "192x192",
+          "type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "name": "القائمة للعملاء",
+      "short_name": "المنيو",
+      "description": "عرض قائمة الطعام للعملاء",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/new-logo.jpg",
+          "sizes": "192x192",
+          "type": "image/jpeg"
+        }
+      ]
+    }
+  ]
+}

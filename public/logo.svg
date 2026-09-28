@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFB86C" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#9E7A35" />
+    </linearGradient>
+  </defs>
+  
+  <!-- English Brand Name -->
+  <text x="200" y="100" text-anchor="middle" fill="url(#goldGradient)" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="normal" letter-spacing="1">rayahen<tspan font-size="22" dy="-30">™</tspan></text>
+  
+  <!-- Arabic Calligraphy Name -->
+  <text x="200" y="180" text-anchor="middle" fill="url(#goldGradient)" font-family="'Cairo', 'Amiri', serif" font-size="70" font-weight="bold" letter-spacing="2">رياحين</text>
+</svg>

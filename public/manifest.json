@@ -1,0 +1,52 @@
+{
+  "name": "رياحين الإسكندرية - القائمة الرقمية",
+  "short_name": "رياحين المنيو",
+  "description": "القائمة الرقمية التفاعلية لرياحين الإسكندرية",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F3",
+  "theme_color": "#FAF8F3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192-v2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "قائمة الطعام",
+      "short_name": "المنيو",
+      "description": "تصفح القائمة الكاملة",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/icon-192-v2.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "لوحة التحكم للإدارة",
+      "short_name": "الداشبورد",
+      "description": "الدخول لإدارة المطعم",
+      "url": "https://rayahen-admin.vercel.app/dashboard",
+      "icons": [
+        {
+          "src": "/icon-192-v2.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

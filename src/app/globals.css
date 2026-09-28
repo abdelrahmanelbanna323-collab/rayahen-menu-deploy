@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors from new logo */
+  --color-brand-gold:        #B38E5D;
+  --color-brand-gold-light:  #CBAE82;
+  --color-brand-gold-muted:  #D4C1A5;
+  --color-brand-brown:       #6E5A47;
+  --color-brand-brown-dark:  #4A3C2A;
+  
+  /* Text */
+  --color-soft-charcoal:     #333333;
+  --color-text-muted:        #888888;
+  
+  --font-outfit:  'Outfit', system-ui, -apple-system, sans-serif;
+  --font-cairo:   'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-cairo), var(--font-outfit), 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:    var(--font-cairo), var(--font-outfit), 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    /* Glassmorphism Animated Gradient Background */
+    background: linear-gradient(-45deg, #f0ece6, #f8f6f0, #e8dfd8, #fae9d9);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--color-brand-brown-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Subtle Noise Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(179, 142, 93, 0.5); border-radius: 99px; }
+
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  ::selection { background: var(--color-brand-gold-muted); color: #fff; }
+}
+
+@layer utilities {
+  /* ── Premium Glassmorphism UI ── */
+  
+  .card-soft-3d {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(110, 90, 71, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .card-soft-3d:hover {
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 40px 0 rgba(110, 90, 71, 0.1);
+    transform: translateY(-4px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+  }
+
+  .btn-soft-3d {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-soft-3d:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .btn-soft-3d:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  .btn-gold-3d {
+    background: linear-gradient(135deg, rgba(203, 174, 130, 0.9), rgba(179, 142, 93, 0.95));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(179, 142, 93, 0.3);
+    color: white;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-gold-3d:hover {
+    background: linear-gradient(135deg, rgba(213, 184, 140, 1), rgba(189, 152, 103, 1));
+    box-shadow: 0 12px 30px rgba(179, 142, 93, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-gold-3d:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 15px rgba(179, 142, 93, 0.2);
+  }
+
+  /* Glass Panels for Modals and Nav */
+  .glass-light, .glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #9C784A, #CBAE82, #9C784A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+.animate-float-soft { animation: float-soft 4s ease-in-out infinite; }
+.animate-slide-up   { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
