@@ -10,6 +10,7 @@ import RatingModal from '@/components/menu/RatingModal';
 import ItemDetailsModal from '@/components/menu/ItemDetailsModal';
 import InstallPWAButton from '@/components/InstallPWAButton';
 import { useMenuStore } from '@/store/useMenuStore';
+import { AVAILABLE_BRANCHES } from '@/types';
 import { Lang, t, getCategoryName, getItemName, isRtl, langNames } from '@/lib/translations';
 import { batchTranslate } from '@/lib/autoTranslate';
 
@@ -130,7 +131,14 @@ export default function GuestMenu({ branchParam }: { branchParam?: string }) {
   }).filter(cat => cat.isActive);
   const ratingUrl = useMenuStore((state) => state.ratingUrl);
   const vatSettings = useMenuStore((state) => state.vatSettings);
-  const showVat = vatSettings[branchParam || 'all'] ?? false;
+  const activeBranchObj = AVAILABLE_BRANCHES.find(b => b.id === (branchParam || 'all')) || { name: 'المنيو العام الرئيسي' };
+  const showVat = vatSettings[branchParam || 'all'] 
+    ?? vatSettings[activeBranchObj.name] 
+    ?? vatSettings['all'] 
+    ?? vatSettings['الكل']
+    ?? vatSettings['المنيو العام الرئيسي']
+    ?? vatSettings['المنيو العام الرئيسي (الكل / All Branches)']
+    ?? false;
   // Listener is auto-started at module level in useMenuStore (see bottom of store file).
   // No need to start/stop it here from the component lifecycle.
 
