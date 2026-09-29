@@ -105,11 +105,11 @@ export default function ItemCard({
 
   const primaryName = getItemName({ nameEn, nameAr, nameIt, nameRu }, lang);
 
-  // Secondary name: always show Arabic for EN (and vice versa), English for IT/RU
+  // Secondary name: show English for AR, Arabic for EN, and nothing for IT/RU
   const secondaryName =
     lang === 'AR' ? nameEn :
     lang === 'EN' ? nameAr :
-    nameEn;  // For IT/RU: show English as universal subtitle
+    ''; // For IT/RU: don't show a subtitle so it looks fully localized
 
   const tr = t(lang);
 
@@ -156,9 +156,11 @@ export default function ItemCard({
           <p className="font-bold text-sm leading-snug" style={{ color: '#4A3C2A' }}>
             {primaryName}
           </p>
-          <p className="text-[10px] mt-0.5 leading-snug" style={{ color: '#888888' }}>
-            {secondaryName}
-          </p>
+          {secondaryName && (
+            <p className="text-[10px] mt-0.5 leading-snug" style={{ color: '#888888' }}>
+              {secondaryName}
+            </p>
+          )}
           {description && (
             <p className="text-[10px] mt-1.5 leading-snug" style={{ color: '#A3988E' }}>
               {description}
