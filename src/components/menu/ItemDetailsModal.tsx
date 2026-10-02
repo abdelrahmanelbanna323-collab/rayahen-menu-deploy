@@ -72,13 +72,13 @@ export default function ItemDetailsModal({ isOpen, item, lang, showVat = false, 
 
         <div className="overflow-y-auto scrollbar-hide pb-28 sm:pb-32">
           {/* Image Header */}
-          <div className="relative w-full h-[280px] sm:h-[320px]">
+          <div className="relative w-full h-[280px] sm:h-[320px] bg-white rounded-t-[32px] sm:rounded-t-[32px]">
             <img 
               src={imgSrc} 
               alt={primaryName}
-              className="w-full h-full object-cover rounded-t-[32px] sm:rounded-t-[32px]"
+              className="w-full h-full object-contain rounded-t-[32px] sm:rounded-t-[32px] p-4"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent pointer-events-none" />
           </div>
 
           {/* Content */}
