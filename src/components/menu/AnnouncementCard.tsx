@@ -29,7 +29,7 @@ export default function AnnouncementCard({ lang, branchParam }: AnnouncementCard
       const override = branchParam ? a.branchOverrides?.[branchParam] : undefined;
       return {
         ...a,
-        isActive: override?.isActive ?? (a.isActive !== false),
+        isActive: a.isActive === false ? false : (override?.isActive ?? true),
         titleAr: override?.titleAr ?? a.titleAr,
         titleEn: override?.titleEn ?? a.titleEn,
         contentAr: override?.contentAr ?? a.contentAr,

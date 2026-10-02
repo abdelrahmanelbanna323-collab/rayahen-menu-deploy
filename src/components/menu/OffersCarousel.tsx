@@ -18,7 +18,7 @@ export default function OffersCarousel({ lang, branchParam }: OffersCarouselProp
       const override = branchParam ? p.branchOverrides?.[branchParam] : undefined;
       return {
         ...p,
-        isActive: override?.isActive ?? (p.isActive !== false),
+        isActive: p.isActive === false ? false : (override?.isActive ?? true),
         titleAr: override?.titleAr ?? p.titleAr,
         titleEn: override?.titleEn ?? p.titleEn,
         subtitleAr: override?.subtitleAr ?? p.subtitleAr,

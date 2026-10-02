@@ -110,7 +110,7 @@ export default function GuestMenu({ branchParam }: { branchParam?: string }) {
       return {
         ...item,
         price: override?.price ?? item.price,
-        isActive: override?.isActive ?? (item.isActive !== false)
+        isActive: item.isActive === false ? false : (override?.isActive ?? true)
       };
     })
     .filter(item => 
@@ -122,7 +122,7 @@ export default function GuestMenu({ branchParam }: { branchParam?: string }) {
     const override = branchParam ? cat.branchOverrides?.[branchParam] : undefined;
     return {
       ...cat,
-      isActive: override?.isActive ?? (cat.isActive !== false),
+      isActive: cat.isActive === false ? false : (override?.isActive ?? true),
       nameAr: override?.nameAr ?? cat.nameAr,
       nameEn: override?.nameEn ?? cat.nameEn,
       icon: override?.icon ?? cat.icon,
